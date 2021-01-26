@@ -53,7 +53,8 @@ service_config = {
     },
 
     'service_output_params' : {                          # interface output params are defined here
-        'value': 'value'
+        'add_result': 'value describe here',
+        'mul_result': 'value describe here'
     },
 
     'deploy_mode'   : 'restful', # c++ deploy            # now only has restful deploy
@@ -82,8 +83,14 @@ Step5: The service will be running:
  * Debug mode: off
 ```
 
-test url:
+The test url:
 
 ```
 http://127.0.0.1:12345/test_service?param1=1&param2=2&param3=3
+```
+
+The response:
+
+```
+{"status": 200, "add_result": "6", "mul_result": "6"}
 ```
