@@ -5,15 +5,14 @@ This project is mainly for machine learning projects. Sometimes a machine learni
 First, you need to put the entire code of your machine learning service into a directory to become a module (actually add the \_\_init\_\_.py file in this directory), and then specify which python file in the directory contains Service, and then specify which function of this file provides the service. Turn the above into a config and directly call flask_autoapi.launch(config) to deploy the service directly.
 
 
-### Dependencies
+### Download
 
 ```
-flask-1.1.2
-flask-RESTFUL-0.3.8
+pip install flask-auto-api
 ```
 
 
-# Example
+### Example
 
 Step1: Suppose you have a local service named service2, and you want to provide service2.service as a restful service.
 
@@ -95,4 +94,12 @@ The response:
 
 ```
 {"status": 200, "add_result": "6", "mul_result": "6"}
+```
+
+
+### Dependencies
+
+```
+flask-1.1.2
+flask-RESTFUL-0.3.8
 ```
