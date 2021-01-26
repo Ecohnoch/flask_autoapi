@@ -20,10 +20,11 @@ The configuration dictionary needs to contain the following options:
 1. service_dir: the folder where the service is located.
 2. service_python_filename: the python file name where the service is located. (filename.py, don't add .py)
 3. service_python_interface: the service interface name.
-4. service_input_params: it is a dict, the keys must be same as the names of input interface params, the values are describes.
-5. deploy_mode: now only provide 'restful'.
-6. deploy_port: api port, check the port is not occupied.
-7. service_route: api route.
+4. service_input_params: it is a dict, the keys must be same as the names of interface input params, the values are describes.
+5. service_output_params: it is a dict, the number of keys must be same as the interface return params, the values are describes. Noted that the keys don't need to be same as the name of return params.
+6. deploy_mode: now only provide 'restful'.
+7. deploy_port: api port, check the port is not occupied.
+8. service_route: api route.
 
 
 ### Example
