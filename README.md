@@ -42,23 +42,23 @@ Step3: Make such a config dictionary:
 
 ```python
 service_config = {
-    'service_dir'               : './services/service2',
-    'service_python_filename'   : 'service2',
-    'service_python_interface'  : 'service2',
+    'service_dir'               : './services/service2', # Service root directory
+    'service_python_filename'   : 'service2',            # service2.py
+    'service_python_interface'  : 'service2',            # service2 is the interface function
 
-    'service_input_params' : {
-        'param1': 'param1',
-        'param2': 'param2',
-        'param3': 'param3',
+    'service_input_params' : {                           # interface input params are defined here
+        'param1': 'param1 describe here',
+        'param2': 'param2 describe here',
+        'param3': 'param3 describe here',
     },
 
-    'service_output_params' : {
+    'service_output_params' : {                          # interface output params are defined here
         'value': 'value'
     },
 
-    'deploy_mode'   : 'restful', # c++ deploy
-    'deploy_port'   : '12345',
-    'service_route' : '/test_service'
+    'deploy_mode'   : 'restful', # c++ deploy            # now only has restful deploy
+    'deploy_port'   : '12345',                           # service port
+    'service_route' : '/test_service'                    # service route
 }
 ```
 
@@ -72,6 +72,15 @@ flask_autoapi.launch(service_config)
 ```
 
 Step5: The service will be running:
+
+```
+ * Running on http://127.0.0.1:12345/ (Press CTRL+C to quit)
+ * Serving Flask app "flask_autoapi.restful_service_enroll" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+```
 
 test url:
 
