@@ -11,6 +11,20 @@ First, you need to put the entire code of your machine learning service into a d
 pip install flask-auto-api -i https://pypi.python.org/simple
 ```
 
+### Describe
+
+You only need a test function that you can run locally (no matter where the function is) and a configuration to start the api service.
+
+The configuration dictionary needs to contain the following options:
+
+1. service_dir: the folder where the service is located.
+2. service_python_filename: the python file name where the service is located. (filename.py, don't add .py)
+3. service_python_interface: the service interface name.
+4. service_input_params: it is a dict, the keys must be same as the names of input interface params, the values are describes.
+5. deploy_mode: now only provide 'restful'.
+6. deploy_port: api port, check the port is not occupied.
+7. service_route: api route.
+
 
 ### Example
 
