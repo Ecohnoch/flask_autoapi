@@ -24,15 +24,17 @@ The example service2 may have its own dependcies, not worry, you don't need to c
 services/service2/service2：
 
 ```
-import dependencies
+from dependencies import add, mul
 
 def service2(param1, param2, param3):
     param1 = int(param1)
     param2 = int(param2)
     param3 = int(param3)
-    ans = param1 + param2 + param3
-    print(ans, str(ans))
-    return str(ans)
+
+    ans1 = add(param1, param2, param3)
+    ans2 = mul(param1, param2, param3)
+
+    return str(ans1), str(ans2)
 ```
 
 It should be noted that the input parameters and output parameters of the interface functions that provide services must be in the type of strings, of course, there is no limit to the parameter number.
