@@ -40,8 +40,7 @@ class RestfulServiceEnroll(object):
             raise ConfigException(
                 'Config Error, service file {} not in service dir: {}'.format(self.config['service_python_filename'], self.config['service_dir']))
         if '__init__.py' not in os.listdir(self.config['service_dir']):
-            raise ConfigException(
-                'Config Error, service file {} not in service dir: {}'.format('__init__.py', self.config['service_dir']))
+            print('Config Warning, service file {} not in service dir: {}'.format('__init__.py', self.config['service_dir']))
 
 
     def _get_service_interface(self):
