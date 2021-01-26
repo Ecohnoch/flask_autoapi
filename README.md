@@ -1,8 +1,8 @@
 # Flask-autoapi
 
-This project is mainly for machine learning projects. Sometimes a machine learning service is written, but it requires a lot of additional code to deploy. Is there any way to register a service to restful api for deployment without changing all the code of the machine learning service? flask-autoapi gives the answer.
+This project is mainly for machine learning projects. Sometimes a machine learning service is written, but it requires a lot of additional code to deploy. Is there any way to register a service to restful api for deployment without changing any code of the machine learning service? Flask-autoapi gives the answer.
 
-First, you need to put the entire code of your machine learning service into a directory to become a module (actually add the \_\_init\_\_.py file in this directory), and then specify which python file in the directory contains Service, and then specify which function of this file provides the service. Turn the above into a config and directly call flask_autoapi.launch(config) to deploy the service directly.
+You only need a test python function that you can run locally (no matter where the function is) and a configuration to start the api service.
 
 
 ### Download
@@ -13,7 +13,7 @@ pip install flask-auto-api -i https://pypi.python.org/simple
 
 ### Describe
 
-You only need a test function that you can run locally (no matter where the function is) and a configuration to start the api service.
+> You only need a test function that you can run locally (no matter where the function is) and a configuration to start the api service.
 
 The configuration dictionary needs to contain the following options:
 
