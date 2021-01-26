@@ -75,7 +75,9 @@ class RestfulServiceEnroll(object):
                         input_params.append(request.args.get(each_service_input))
                     print(input_params)
                     print(*input_params)
+                    os.chdir(self.config['service_dir'])
                     return_results = self.service_interface(*input_params)
+                    os.chdir(os.path.dirname(__file__))
                     if len(service_output_params) == 0:
                         return {'status': 200}
                     if len(service_output_params) == 1 and isinstance(return_results, tuple):
