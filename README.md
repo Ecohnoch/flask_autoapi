@@ -8,7 +8,7 @@ First, you need to put the entire code of your machine learning service into a d
 ### Download
 
 ```
-pip install flask-auto-api
+pip install flask-auto-api -i https://pypi.python.org/simple
 ```
 
 
