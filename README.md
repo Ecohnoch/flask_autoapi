@@ -111,6 +111,17 @@ The response:
 ```
 
 
+### More
+
+Essentially, the HTTP service is provided by flask and flask-restful api. The most important thing for flask is the flask app and restful-api (api). If you need flask app and flask-restful api object for more development, you can use flask_autoapi.register, which will return a flask app for more Development.
+
+
+```python
+import flask_autoapi
+app, api = flask_autoapi.register(service_config)
+# app is a flask app object, api is flask-restful api object
+```
+
 ### Dependencies
 
 ```

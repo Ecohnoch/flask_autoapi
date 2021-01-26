@@ -5,11 +5,9 @@
 
 from .restful_service_enroll import RestfulServiceEnroll
 
-def save_service(config, save_path):
+def register(config):
     service_object = RestfulServiceEnroll(config=config)
-    import pickle
-    with open(save_path, 'wb') as f:
-        pickle.dump(service_object.app, f)
+    return service_object.app, service_object.api
 
 def launch(config):
     service_object = RestfulServiceEnroll(config=config)
