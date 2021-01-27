@@ -9,6 +9,6 @@ def register(config):
     service_object = RestfulServiceEnroll(config=config)
     return service_object.app, service_object.api
 
-def launch(config):
+def launch(config, host=None):
     service_object = RestfulServiceEnroll(config=config)
-    service_object.launch_app()
+    service_object.launch_app(host)

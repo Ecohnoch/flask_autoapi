@@ -13,11 +13,12 @@ import flask_restful as restful
 from .exceptions import ConfigException, ServiceInterfaceException, OutPutParamsNotMatchException
 
 class RestfulServiceEnroll(object):
-    def __init__(self, config):
+    def __init__(self, config, app=None, api=None):
         self.config = config
         self._check_config()
 
-        self.app, self.api = self.init_app()
+        if app is None and api is None:
+            self.app, self.api = self.init_app()
         self._get_service_interface()
         self._api_class_register()
 
@@ -101,8 +102,11 @@ class RestfulServiceEnroll(object):
         api = restful.Api(app)
         return app, api
 
-    def launch_app(self):
-        self.app.run(port=self.config['deploy_port'])
+    def launch_app(self, host=None):
+        if host is None:
+            self.app.run(port=self.config['deploy_port'])
+        else:
+            self.app.run(host=host, port=self.config['deploy_port'])
 
 
 

@@ -29,4 +29,4 @@ service_config = {
 
 
 if __name__ == '__main__':
-    flask_autoapi.launch(service_config)
+    flask_autoapi.launch(service_config, host='0.0.0.0')
