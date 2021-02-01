@@ -43,9 +43,11 @@ class RestfulServiceEnroll(object):
         if '__init__.py' not in os.listdir(self.config['service_dir']):
             print('Config Warning, service file {} not in service dir: {}'.format('__init__.py', self.config['service_dir']))
 
+        self.absolute_service_dir = os.path.abspath(self.config['service_dir'])
+
 
     def _get_service_interface(self):
-        sys.path.append(self.config['service_dir'])
+        sys.path.append(self.absolute_service_dir)
         import importlib
         service_module = importlib.import_module(self.config['service_python_filename'])
         if not hasattr(service_module, self.config['service_python_interface']):
@@ -73,11 +75,10 @@ class RestfulServiceEnroll(object):
                     input_params = []
                     for each_service_input in service_input_params:
                         input_params.append(request.args.get(each_service_input))
-                    print(input_params)
-                    print(*input_params)
-                    os.chdir(self.config['service_dir'])
+                    current_work_dir_path = os.path.abspath(os.getcwd())
+                    os.chdir(self.absolute_service_dir)
                     return_results = self.service_interface(*input_params)
-                    os.chdir(os.path.dirname(__file__))
+                    os.chdir(current_work_dir_path)
                     if len(service_output_params) == 0:
                         return {'status': 200}
                     if len(service_output_params) == 1 and isinstance(return_results, tuple):
@@ -90,7 +91,7 @@ class RestfulServiceEnroll(object):
                         for each_key, each_result in zip(service_output_params, return_results):
                             ans[each_key] = each_result
                         return ans
-                    raise OutPutParamsNotMatchException('Service output params and return results are not match, return result: ', return_results)
+                    raise OutPutParamsNotMatchException('Service output params and return results are not match, return result: {}'.format(return_results))
                 except Exception as e:
                     traceback.print_exc()
                     return {'status': 400, 'err_msg': str(e)}

@@ -4,14 +4,14 @@
 # @Function : TODO
 
 class ConfigException(Exception):
-    def __init__(self):
-        pass
+    def __init__(self, err_msg):
+        Exception.__init__(self, err_msg)
 
 class ServiceInterfaceException(Exception):
-    def __init__(self):
-        pass
+    def __init__(self, err_msg):
+        Exception.__init__(self, err_msg)
 
 
 class OutPutParamsNotMatchException(Exception):
-    def __init__(self):
-        pass
+    def __init__(self, err_msg):
+        Exception.__init__(self, err_msg)
