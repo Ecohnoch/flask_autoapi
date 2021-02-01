@@ -19,6 +19,9 @@ class RestfulServiceEnroll(object):
 
         if app is None and api is None:
             self.app, self.api = self.init_app()
+        else:
+            self.app, self.api = app, api
+
         self._get_service_interface()
         self._api_class_register()
 
@@ -62,11 +65,13 @@ class RestfulServiceEnroll(object):
     def _api_class_register(self):
         global_config = self.config
         service_interface = self.service_interface
+        absolute_service_dir = self.absolute_service_dir
         class API(restful.Resource):
             def __init__(self):
                 super(API, self).__init__()
                 self.config = global_config
                 self.service_interface = service_interface
+                self.absolute_service_dir = absolute_service_dir
             def get(self):
                 try:
                     service_input_params  = self.config['service_input_params']
